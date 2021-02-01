@@ -1,4 +1,4 @@
-CS50x — 2018 solutions
+CS50x — 2020
 =====================
 
 > A quick word on [Academic Honesty](https://cs50.harvard.edu/x/2020/honesty/). While these solutions will help you to get through the course without too much effort, you should do your best to figure out a working solution yourself before taking a look at any of my solutions. Investing your time and energy into solving the problem sets yourself is in my opinion the only way to eventual mastery.
@@ -50,11 +50,3 @@ Go ahead and take a peek at the solutions.
 - [Problem Set 8: Mashup](/pset8)
   * [mashup](/pset8/mashup)
 
-## Full Disclosure
-
-I worked out these solutions as part of the preparation for a CS50x course I led during winter 2018/19 in the city of Kosice, Slovakia. This way, I would like to express my gratitude for this great opportunity.
-
-- [An official announcement](https://www.facebook.com/DanubeDigital/posts/758423431009895)
-- [My personal announcement](https://www.facebook.com/mareksuscak/posts/10212448694424737)
-- [My certificate of gratitude](https://www.facebook.com/photo.php?fbid=10212767883924275&set=a.1747426837808.2090961.1002913113&type=3)
-- [Prof. David J. Malan's greets graduates of the first CS50x batch in Slovakia](https://www.facebook.com/vladimir.liulka/posts/1487077188057449)
