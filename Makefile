@@ -1,16 +1,33 @@
-CC ?= clang
-CFLAGS ?= -fsanitize=integer -fsanitize=undefined -ggdb3 -O0 -std=c11 -Wall -Werror -Wextra -Wno-sign-compare -Wshadow
-LDLIBS ?= -lcs50 -lm
+# compiler to use
+CC = clang
 
-.PHONY: all
-all: notes synthesize
+# flags to pass compiler
+CFLAGS = -fsanitize=signed-integer-overflow -fsanitize=undefined -ggdb3 -O0 -Qunused-arguments -std=c11 -Wall -Werror -Wextra -Wno-sign-compare -Wshadow
 
-notes: helpers.c helpers.h notes.c wav.c wav.h
-	$(CC) $(CFLAGS) -o notes helpers.c notes.c wav.c $(LDLIBS)
+# name for executable
+EXE = speller
 
-synthesize: synthesize.c wav.c wav.h helpers.c helpers.h
-	$(CC) $(CFLAGS) -o synthesize helpers.c synthesize.c wav.c $(LDLIBS)
+# space-separated list of header files
+HDRS = dictionary.h djb2.h jenkins.h bloom.h
 
-.PHONY: clean
+# space-separated list of libraries, if any,
+# each of which should be prefixed with -l
+LIBS =
+
+# space-separated list of source files
+SRCS = speller.c dictionary.c djb2.c jenkins.c bloom.c
+
+# automatically generated list of object files
+OBJS = $(SRCS:.c=.o)
+
+
+# default target
+$(EXE): $(OBJS) $(HDRS) Makefile
+	$(CC) $(CFLAGS) -o $@ $(OBJS) $(LIBS)
+
+# dependencies
+$(OBJS): $(HDRS) Makefile
+
+# housekeeping
 clean:
-	rm -f notes synthesize *.wav
+	rm -f core $(EXE) *.o

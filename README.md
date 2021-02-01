@@ -1,55 +1,38 @@
-# CS50
-CS50x — 2020 solutions
-=====================
+# Questions
 
-> A quick word on [Academic Honesty](https://cs50.harvard.edu/x/2020/honesty/). While these solutions will help you to get through the course without too much effort, you should do your best to figure out a working solution yourself before taking a look at any of my solutions. Investing your time and energy into solving the problem sets yourself is in my opinion the only way to eventual mastery.
+## What is pneumonoultramicroscopicsilicovolcanoconiosis?
 
-Go ahead and take a peek at the solutions.
+According to Merriam-Webster's Medical Dictionary,
+pneumonoultramicroscopicsilicovolcanoconiosis is a
+pneumoconiosis caused by inhalation of very fine
+silicate or quartz dust.
 
-## Table of Contents
+I'd also assume that it's the longest english word.
 
-- [Problem Set 1: C](/pset1)
-  * [hello](/pset1/hello)
-  * [cash](/pset1/cash)
-  * [credit](/pset1/credit)
-  * mario
-    + [less](/pset1/mario/less)
-    + [more](/pset1/mario/more)
-- [Problem Set 2: Crypto](/pset2)
-  * [caesar](/pset2/caesar)
-  * [vigenere](/pset2/vigenere)
-  * [crack](/pset2/crack)
-- [Problem Set3: Music](/pset3)
-  * [music](/pset3/music)
-- [Problem Set 4: Forensics](/pset4)
-  * [whodunit](/pset4/whodunit)
-  * resize
-    + [less](/pset4/resize/less)
-    + [more](/pset4/resize/more)
-  * [recover](/pset4/recover)
-- [Problem Set 5: Mispellings](/pset5)
-  * [speller](/pset5/speller)
-    + [hashtable](/pset5/speller/hashtable)
-    + [trie](/pset5/speller/trie)
-    + [bloom filter](/pset5/speller/bloom_filter)
-- [Problem Set 6: Déjà vu](/pset6)
-  * [sentimental](/pset6/sentimental)
-    + [hello](/pset6/sentimental/hello)
-    + [cash](/pset6/sentimental/cash)
-    + [credit](/pset6/sentimental/credit)
-    + mario
-      - [less](/pset6/sentimental/mario/less)
-      - [more](/pset6/sentimental/mario/more)
-    + [caesar](/pset6/sentimental/caesar)
-    + [vigenere](/pset6/sentimental/vigenere)
-    + [crack](/pset6/sentimental/crack)
-  * [similarities](/pset6/similarities)
-    + [less](/pset6/similarities/less)
-    + [more](/pset6/similarities/more)
-- [Problem Set 7: C$50 Finance](/pset7)
-  * [finance](/pset7/finance)
-- [Problem Set 8: Mashup](/pset8)
-  * [mashup](/pset8/mashup)
+## According to its man page, what does `getrusage` do?
 
+getrusage() returns resource usage measures for who, which can be one of the following.
 
+## Per that same man page, how many members are in a variable of type `struct rusage`?
 
+16
+
+## Why do you think we pass `before` and `after` by reference (instead of by value) to `calculate`, even though we're not changing their contents?
+
+It appears that the rusage struct takes considerable chunk of memory so we better avoid making extraneous copies.
+
+## Explain as precisely as possible, in a paragraph or more, how `main` goes about reading words from a file. In other words, convince us that you indeed understand how that function's `for` loop works.
+
+It reads characters one-by-one into the word buffer until it reaches EOF. Words can only contain alphabetical
+characters and apostrophes. Words that are longer than LENGTH and thus wouldn't fit into the buffer are dropped
+entirely. Words which contain numbers are ignored completely as well. Whole words are then terminated
+with a NUL character and checked against the dictionary of valid words.
+
+## Why do you think we used `fgetc` to read each word's characters one at a time rather than use `fscanf` with a format string like `"%s"` to read whole words at a time? Put another way, what problems might arise by relying on `fscanf` alone?
+
+Because %s would treat words containing numbers and other disallowed characters as valid which
+based on our definition of the word is not.
+
+## Why do you think we declared the parameters for `check` and `load` as `const` (which means "constant")?
+
+To declare that the data that the pointer points to must not be changed.
